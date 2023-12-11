@@ -1,14 +1,14 @@
 # main text of home
 title: Into the habit
-bio: Web developer on progress | art and music enthusiast
+bio: Web developer in progress | art and music enthusiast
 
 # twitter summary info
 description: A blog about technology and stuff related
 
 # if it's an external image, update below for true
 # better with square images
-external-image: false
-picture: assets/images/profile.jpg
+external-image: true
+picture: https://www.google.com/url?sa=i&url=https%3A%2F%2Fonezero.medium.com%2Fthe-dark-forest-theory-of-the-internet-7dc3e68a7cb1&psig=AOvVaw0eDOFVAcZtoBBhyIzyd_U2&ust=1702358100179000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPjX0qPQhoMDFQAAAAAdAAAAABAE
 
 # your site color theme, true for dark theme, 
 # false to light theme, auto to switch with system.
