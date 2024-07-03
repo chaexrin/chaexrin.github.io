@@ -1,0 +1,78 @@
+---
+title: "JS - 변수"
+layout: post
+date: 2024-07-03 16:26
+image: 
+headerImage: false
+tag:
+- 자바 스크립트
+- 변수
+category: blog
+author: Chaerin
+description: 자바스크립트 수업듣고 공부한 내용 정리
+---
+
+## Javascript - 변수 
+
+---
+
+### const
+
+- 실무에서 const 을 더 많이 씀
+
+```javascript
+
+const a = 10;
+
+```
+
+### let
+
+```javascript
+
+let b = 20;
+
+```
+---
+
+### const와 let의 차이점
+
+const는 constant의 약자; 상수
+초반에 한번 값을 정의하고 나면 뒤에는 바꿀 수 없다.
+
+```javascript
+
+const a = 10;
+let b = 20;
+
+b = 30;
+
+// a = 50; -> 에러 발생 
+ 
+```
+
+---
+
+
+### 변수에 담을 수 있는 데이터 종류 
+
+```javascript
+
+let a = 10;
+
+let b = 'hi';
+
+let c = true;
+
+let d = [];
+
+let e = {};
+
+```
+
+---
+
+### 변수명 컨벤션
+
+변수명은 숫자로 시작하면 안된다.
+주로 카멜 케이스(여러 단어로 이름을 지었을 때, 두번째 단어부터 첫 글자를 대문자로 작성하는 명명 규칙)
