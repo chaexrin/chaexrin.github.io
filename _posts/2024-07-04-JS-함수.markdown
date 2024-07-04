@@ -1,0 +1,199 @@
+---
+title: "JS - 함수"
+layout: post
+date: 2024-07-04 10:40
+image: 
+headerImage: false
+tag:
+- 자바 스크립트
+- 함수
+category: blog
+author: Chaerin
+description: 자바스크립트 수업듣고 공부한 내용 정리
+---
+
+## Javascript - 함수 
+
+
+
+### Function
+
+- 예약어 = keyword
+- 특정 기능을 수행하는 코드의 단위
+
+```javascript
+
+function logText() {
+    console.log('hi');
+}
+
+logText();
+
+```
+
+### 함수 파라미터와 반환값
+
+```javascript
+
+function sumNumbers(a, b) {
+    return a + b;
+}
+
+function logText(message) {
+    console.log(message);
+}
+
+logText('Hello');
+// Hello 출력됨
+
+// 함수 반환값
+function logText(message) {
+    return message;
+}
+
+let a = logText('hi');
+
+
+function logText() {
+    return 'a';
+}
+
+```
+---
+
+### 함수 선언문과 함수 표현식
+
+- 파라미터(매개변수): 함수를 선언할 때 쓰는 값
+- 아규먼트(인자): 함수를 호출할 때 쓰는 값
+
+#### 함수 선언문
+
+```javascript
+
+function 함수명() {
+  구현 로직
+}
+
+// 예시
+function funcDeclarations() {
+  return 'A function declaration';
+}
+funcDeclarations(); // 'A function declaration'
+ 
+```
+#### 함수 표현식
+
+```javascript
+
+var 함수명 = function () {
+  구현 로직
+};
+
+// 예시
+var funcExpression = function () {
+    return 'A function expression';
+}
+funcExpression(); // 'A function expression'
+
+```
+### 함수 선언문과 표현식의 차이점
+
+
+함수 선언문은 호이스팅에 영향을 받지만, 함수 표현식은 호이스팅에 영향을 받지 않는다.
+
+함수 선언문은 코드를 구현한 위치와 관계없이 자바스크립트의 특징인 호이스팅에 따라 브라우저가 자바스크립트를 해석할 때 맨 위로 끌어 올려진다.
+
+‘함수 표현식이 호이스팅에 영향을 받지 않는다’ 는 특징 이외에도 함수 선언문보다 유용하게 쓰이는 경우는 다음과 같다.
+
+- 클로져로 사용
+- 콜백으로 사용 (다른 함수의 인자로 넘길 수 있음)
+
+
+---
+
+
+### 일급 함수 = First-class Function
+
+- 함수가 변수처럼 어디든 할당 할 수 있다.
+- 변수가 할당 될 수 있는 모든 곳에서 함수가 동일하게 사용될 수 있다.
+
+```javascript
+
+// 함수 표현식
+var logText = function() {
+    console.log('hi')
+}
+
+function logText(message) {
+    message();
+}
+
+// 일급함수 
+logText(function() {
+    console.log('hi');
+});
+// hi 가 출력됨 
+
+```
+
+---
+
+### 화살표 함수 (Arrow Function)
+
+- 화살표 함수는 ES6의 새로운 함수 정의 방식입니다.
+- 함수 표현식에서 진화된 문법 
+
+```javascript
+
+// 함수 표현식
+var logText = function() {
+    console.log('hi');
+};
+
+// 화살표 함수 
+
+var logText = () => {
+    console.log('hi');
+};
+
+```
+
+#### 화살표 함수의 다양한  표현식
+
+1. 단순한 자바스크립트 표현식
+
+```javascript
+
+// 함수 표현식
+let logText = () => {
+    return 'a';
+};
+
+logText();
+// 'a' 출력
+
+let logMessage = () => 'a';
+
+logMessage();
+// 'a' 출력
+
+```
+
+2. 전달인자(parameter)가 하나인 경우
+
+```javascript
+
+let logNumber = (num) => {
+    return num;
+}
+
+// 괄호를 벗길 수 있음
+let logNumber = num => {
+    return num;
+}
+
+let logNumber = num => num;
+
+logNumber(1);
+// 1 출력됨
+```
