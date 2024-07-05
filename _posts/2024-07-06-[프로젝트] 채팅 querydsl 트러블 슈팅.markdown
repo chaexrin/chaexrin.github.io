@@ -62,11 +62,11 @@ public class ChatroomRepositoryOverrideImpl implements ChatroomRepositoryOverrid
 
 ![스크린샷 2024-07-05 오후 2 42 18](https://github.com/chaexrin/chaexrin.github.io/assets/150896440/63057299-aa09-46da-8161-6e28ae7527d2)
 
-Projections.bean()은 기본 생성자와 setter를 기반으로 동작한다, 그래서 해당 DTO에 기본생성자가 없으면면 에러가 발생!!!
+Projections.bean()은 기본 생성자와 setter를 기반으로 동작한다, 그래서 해당 DTO에 기본생성자가 없으면 에러가 발생!!!
 
 또한 setter가 없다면 DTO의 필드에 값이 할당되지 못해서 모든 필드가 null이 되므로 주의해야한다.
 
-#### 🧠 `결론 : Projection에서 사용할 DTO에는 @NoArgsConstructor와 @Setter를 꼭 붙이자`
+
 
 
 ### 오류 해결 전 ChatroomListResponse 코드
@@ -129,3 +129,5 @@ public class ChatroomListResponse {
 
 ```
 
+
+### 🧠 `결론 : Projection에서 사용할 DTO에는 @NoArgsConstructor와 @Setter를 꼭 붙이자`
