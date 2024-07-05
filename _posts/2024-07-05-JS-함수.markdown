@@ -1,0 +1,52 @@
+---
+title: "JS - 조건문 & 반복문"
+layout: post
+date: 2024-07-05 10:40
+image: 
+headerImage: false
+tag:
+- 자바 스크립트
+- 조건문 & 반복문
+category: blog
+author: Chaerin
+description: 자바스크립트 수업듣고 공부한 내용 정리
+---
+
+## Javascript - 조건문 & 반복문 
+
+
+
+### 조건문(Condition)
+
+- 주어진 조건을 만족할 때만 코드를 실행 
+- 조건에 따라서 다른 동작을 실행하고 싶을 때 조건문 사용
+
+
+```javascript
+
+let age = 30;
+
+if(age > 20) {
+    console.log('만원');
+} else {
+    console.log('오천원');
+}
+
+
+```
+
+### 반복문(Loop)
+
+- 특정 로직을 반복할 때 사용하는 문법
+
+```javascript
+
+let total = 0;
+for (let i =0; i < 6; i++) {
+    total = total + i;
+}
+
+// total = 15 
+
+
+```
