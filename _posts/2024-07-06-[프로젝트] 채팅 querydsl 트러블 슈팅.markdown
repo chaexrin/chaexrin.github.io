@@ -7,6 +7,9 @@ headerImage: false
 tag:
 - 자바
 - 프로젝트
+- 스프링 부트 
+- Querydsl
+- Projections
 category: blog
 author: Chaerin
 description: 프로젝트 중 발생한 오류 트러블슈팅
