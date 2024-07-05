@@ -1,0 +1,87 @@
+---
+title: "JS - 객체"
+layout: post
+date: 2024-07-05 11:40
+image: 
+headerImage: false
+tag:
+- 자바 스크립트
+- 객체
+category: blog
+author: Chaerin
+description: 자바스크립트 수업듣고 공부한 내용 정리
+---
+
+## Javascript - 객체
+
+
+
+### 객체 (Object)
+
+- 객체 기반 언어
+- 객체는 키(key) - 값(value) 형태
+
+```javascript
+
+let obj = {
+    a:10
+}
+
+// {} 라는 기호가 객체를 의미 -> 객체 리터럴 
+
+
+```
+
+### 객체 축약 문법 
+
+#### 1. 향상된 객체 리터럴 (Enhanced Object Literal)
+
+
+
+```javascript
+
+let a = 10;
+
+// 1)
+let obj = {
+    a: a
+};
+
+obj.a 
+// 10
+
+// 2)
+
+let obj = {
+    a
+}; 
+
+```
+
+#### 2. 속성에 함수를 정의할 때 function 예약어 생략
+
+
+```javascript
+
+// 1) 속성 함수 
+let josh = {
+    coding: function() {
+        console.log('코딩');
+    }
+}
+
+josh.coding();
+// 코딩 출력됨 
+
+// 2) : function 생략 가능
+
+let capt = {
+    coding() {
+        console.log('코딩');
+    }
+}
+
+capt.coding();
+// 코딩 출력
+
+```
