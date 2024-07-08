@@ -8,8 +8,8 @@ tag:
 - 자바
 - 프로젝트
 - 스프링 부트 
-- @RestController
-- @Controller
+- RestController
+- Controller
 category: blog
 author: Chaerin
 description: 프로젝트 코드 리팩토링
