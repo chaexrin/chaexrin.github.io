@@ -1,0 +1,90 @@
+---
+title: "JS - 템플릿 리터럴, 구조 분해 문법"
+layout: post
+date: 2024-08-01 12:46
+image: 
+headerImage: false
+tag:
+- 자바 스크립트
+- 템플릿 리터럴
+- 구조 분해 문법 
+- 배열
+- 객체와 별칭 
+category: blog
+author: Chaerin
+description: 자바스크립트 수업듣고 공부한 내용 정리
+---
+
+## Javascript - 템플릿 리터럴
+
+
+
+### 템플릿 리터럴(Template Literal)
+
+- 자바스크립트에서 문자열을 입력하는 방식
+- ES6에서는 백틱(back-tick)이라는 기호를 사용하여 정의
+
+
+
+```javascript
+
+var a = 'hi';
+
+var b = "hi";
+
+var c = `hi`;
+
+var message = `${a} 캡팡`;
+
+// 기존 방식
+var message = a + '캡팡';
+
+```
+
+---
+
+### Destructuring(구조 분해 문법) - 배열 
+
+- 코드의 반복을 줄이기 위한 문법 
+
+
+```javascript
+
+var arr = ['apple', 10];
+
+var favoriteFruit = arr[0];
+
+var myNumber = arr[1];
+
+var [myFruit, myNum] = arr; 
+
+
+```
+
+### Destructuring(구조 분해 문법) - 객체와 별칭
+
+
+
+```javascript
+
+var josh = {
+    skill: 'js',
+    age: 21
+}
+
+// 특정 객체의 속성에 접근할 때
+var mySkill = josh.skill;
+
+var myAge = josh.age;
+
+var {skill, age} = josh;
+// var skill = josh.skil;
+// var age = josh.age;
+
+// 별칭 
+var (skill:mySkill, age:myAge) = josh;
+// age 라는 속성을 꺼내서 myAge라는 변수로 선언하겠다라는 의미 
+// var myskill = josh.skil;
+
+
+```
