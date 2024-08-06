@@ -1,0 +1,188 @@
+---
+title: "JS - 비동기 처리"
+layout: post
+date: 2024-08-06 13:30
+image: 
+headerImage: false
+tag:
+- 자바 스크립트
+- 비동기 처리
+category: blog
+author: Chaerin
+description: 자바스크립트 수업듣고 공부한 내용 정리
+---
+
+## Javascript - 비동기 처리
+
+
+
+### 비동기 처리란 무엇인가
+
+- 특정 코드의 연산이 끝날 때까지 코드의 실행을 멈추지 않고 다음 코드를 먼저 실행하는 자바스크립트의 특성 
+
+```javascript
+ 
+function fetchMenuInfo() {
+   return $.get("http://domain.com/api/menu", function(response) {
+   });
+}
+
+// 1. 사용자 정보 요청
+fetchUser(); // 0.1초
+
+// 2. 좌측 메뉴 정보 요청
+let menu;
+fetchMenuInfo(function(response) {
+   menu = response;
+   // 4. 페이지 UI 표시
+renderPageUI(menu); // 2초
+}); // 1시간
+
+// 3. 영상 본문 요청
+fetchContents(); // 1초
+
+
+// 총합: 최소 1시간
+
+```
+
+### 콜백 함수를 이용한 비동기 코드 처리
+
+
+```javascript
+function fetchMenu(callbackFunction) {
+   setTimeout(() => {
+      // #2
+      let data = {firstMenu: "구독" };
+      callbackFunction(data);
+      return data;
+   }, 5000);
+   // return { firstMenu: "구독" }
+}
+
+let menu;
+ fetchMenu(function(result) {
+   // 호출되면 실행할 코드를 넣어주세요.
+   console.log("5초 뒤 실행", result);
+   menu = result;
+});
+
+// #1
+console.log("출력 결과: ", menu)
+```
+
+### 콜백 함수의 단점과 Promise가 필요한 이유
+
+“A promise is an object that may produce a single value some time in the future”
+
+- 프로미스: 자바스크립트 비동기 처리에 사용되는 객체 
+- 프로미스는 주로 서버에서 받아온 데이터를 화면에 표시할 때 사용
+
+**프로미스의 상태(states)**
+
+- Pending(대기) : 비동기 처리 로직이 아직 완료되지 않은 상태
+- Fulfilled(이행) : 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태
+- Rejected(실패) : 비동기 처리가 실패하거나 오류가 발생한 상태
+
+
+
+```javascript
+function fetchMenu(callbackFunction) {
+   return new Promise(function (resolve, reject) {
+      setTimeout(() => {
+      // #2
+      let data = { firstMenu: "구독" };
+      
+      if (error) {
+        reject(error)
+      }
+      resolve(data);
+   }, 5000);
+   });
+}
+
+let menu;
+
+// 프로미스 문법으로 작성된 코드
+fetchMenu() // Promise 객체여야만 then, catch 유효하게 동작
+.then(reunderPageUI)
+.then(function (result) {
+   // 호출되면 실행될 코드를 넣어주세요.
+   console.log("5초 뒤 실행", result);
+   menu = result;
+}).catch(funtion (error) {
+   console.log("에러 처리");
+   return;
+});
+
+
+
+// 콜백 함수로 작성된 코드
+ fetchMenu(function(error, result) {
+   if (error) {
+      console.log("에러 처리");
+      return;
+   }
+  // 호출되면 실행될 코드를 넣어주세요.
+   console.log("5초 뒤 실행", result);
+   menu = result;
+});
+// #1
+console.log("출력 결과: ", menu)
+
+renderPageUI(function (error, response) {
+   response;
+})
+```
+
+### async await 문법 소개 
+
+- 기존 비동기 처리 방식인 콜백 함수와 프로미스의 단점을 보완하고 개발자가 읽기 좋은 코드를 작성할 수 있게 도와줌
+
+
+```javascript
+
+// async await 기본 문법
+async function 함수명() {
+   await 비동기_처리_메서드_명();
+   // await 는 프로미스를 반환하는 API나 메서드 앞에 붙여야함.
+}
+
+
+async function init() {
+   // 1. 메뉴 선언
+   let menu; // undefined
+   // 2. 메뉴 데이터 호출해서 할당
+   menu = await fetchMenu();
+   // 3. 메뉴 데이터 콘솔에 출력
+   console.log(menu);
+}
+
+init();
+
+
+```
+
+
+#### async & await 예외 처리
+
+- 예외 처리 방법: try catch
+
+```javascript
+
+async function logTodoTitle() {
+
+  try {
+    var user = await fetchUser();
+    if (user.id === 1) {
+      var todo = await fetchTodo();
+      console.log(todo.title); // delectus aut autem
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+
+
+```
